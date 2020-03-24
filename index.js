@@ -11,7 +11,7 @@ return {
 
 function createEmployeeRecords(array)
 {
-    return array.map(ele=>createEmployeeRecord(ele))
+    return array.map(e=>createEmployeeRecord(e))
 }
 
 let createTimeInEvent = function(employee, dateStamp){
@@ -38,8 +38,8 @@ let createTimeInEvent = function(employee, dateStamp){
  }
  
   function hoursWorkedOnDate(record, dateStamp){
-let inEvent = record.timeInEvents.find(ele=> ele.date === dateStamp)
-let outEvent = record.timeOutEvents.find(ele=> ele.date ===dateStamp)
+let inEvent = record.timeInEvents.find(e=> e.date === dateStamp)
+let outEvent = record.timeOutEvents.find(e=> e.date ===dateStamp)
 return (outEvent.hour- inEvent.hour)/100;
  }
 
@@ -54,9 +54,9 @@ return time.reduce((total,date)=> total + wagesEarnedOnDate(employee, date), 0)
 }
    
 function calculatePayroll(employee){
-  return employee.reduce((total,ele) => total + allWagesFor(ele), 0)
+  return employee.reduce((total,e) => total + allWagesFor(e), 0)
 }
 
 function findEmployeeByFirstName(record, firstName){
-return record.find(ele=> ele.firstName === firstName)
+return record.find(e=> e.firstName === firstName)
 }
