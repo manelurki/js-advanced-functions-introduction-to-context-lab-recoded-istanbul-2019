@@ -37,11 +37,12 @@ let createTimeInEvent = function(employee, dateStamp){
    return record;
  }
  
-  function hoursWorkedOnDate(record, dateStamp){
-let inEvent = record.timeInEvents.find(e=> e.date === dateStamp)
-let outEvent = record.timeOutEvents.find(e=> e.date ===dateStamp)
-return (outEvent.hour- inEvent.hour)/100;
- }
+ function hoursWorkedOnDate(obj,str){
+    let timeIn = obj.timeInEvents.find(e=>e.date === str)
+    let timeOut = obj.timeOutEvents.find(e=>e.date === str)
+    return ((timeOut.hour/100)-(timeIn.hour/100))
+
+}
 
    
 function wagesEarnedOnDate(record, dateStamp){
